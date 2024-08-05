@@ -10,7 +10,7 @@ const GameBoard = () => {
     const inputRefs = useRef([]);
 
     // DL tile selection
-    const [selectedDLTile, setSelectedDLTile] = useState(null);
+    const [selectedDLTile, setSelectedDLTile] = useState(-1);
     const [selectModeDL, setSelectModeDL] = useState(false);
     
 
@@ -23,8 +23,8 @@ const GameBoard = () => {
 
 
     const handleDLButtonClick = () => {
-        if (selectedDLTile) {
-            setSelectedDLTile(null);
+        if (selectedDLTile !== -1) {
+            setSelectedDLTile(-1);
         } else {
             setSelectModeDL((i) => !i); // Enter select mode
         }
@@ -42,12 +42,12 @@ const GameBoard = () => {
     };
 
     // 2x tile selection
-    const [selected2xTile, setSelected2xTile] = useState(null);
+    const [selected2xTile, setSelected2xTile] = useState(-1);
     const [selectMode2x, setSelectMode2x] = useState(false);
 
     const handle2xButtonClick = () => {
-        if (selected2xTile) {
-            setSelected2xTile(null);
+        if (selected2xTile !== -1) {
+            setSelected2xTile(-1);
         } else {
             setSelectMode2x((i) => !i); // Enter select mode
         }
@@ -91,10 +91,15 @@ const GameBoard = () => {
                 charArray[i][j] = charArray[i][j].toLowerCase();
             }
         }
+        let tile_2x = []
+        if (selected2xTile !== -1) {
+            tile_2x = [Math.floor(selected2xTile / boardsize), selected2xTile % boardsize]
+        } 
 
-        
-        const tile_2x = [Math.floor(selected2xTile / boardsize), selected2xTile % boardsize]
-        const tile_dl = [Math.floor(selectedDLTile / boardsize), selectedDLTile % boardsize]
+        let tile_dl = []
+        if (selectedDLTile  !== -1) {
+            tile_dl = [Math.floor(selectedDLTile / boardsize), selectedDLTile % boardsize]
+        }
 
         setResBoard({board : charArray, tile_2x : tile_2x, tile_dl : tile_dl});
 
@@ -102,8 +107,10 @@ const GameBoard = () => {
 
         console.log(result);
 
-        setAvailableWords(result['res1']);
-        setSwapForWords(result['res2']);
+        if (result['res1'].length > 0) {
+            setAvailableWords(result['res1']);
+            setSwapForWords(result['res2']);
+        }
         setIsPending(false);
 
         // You can also send charArray to some function or API here

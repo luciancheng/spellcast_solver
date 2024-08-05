@@ -11,13 +11,15 @@ const BoardResults = () => {
     const topn = 5;
     const topwords = [];
 
-    for (let i = 0; i < topn; i++) {
+    for (let i = 0; i < Math.min(topn, availableWords.length); i++) {
         topwords.push(availableWords[i]);
     }
+    console.log(availableWords)
+    console.log(swapForWords)
 
     return ( 
         <div className="boardresults mt-20 flex flex-col gap-10">
-            {availableWords.length > 0 && 
+            {availableWords.length > 0 && Object.keys(swapForWords).length !== 0 &&
                 topwords.map((word, i) => (
                     <ResultCard wordScores={word} wordDetails={swapForWords[JSON.stringify(word)]} board={resBoard} key={i}/>
                 ))
