@@ -1,8 +1,10 @@
-# React + Vite
+# Discord SpellCast Solver
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## How to Use
+- fill out the grid provided with your letters
+- click on the DL and 2X words to select which tiles have the boost
+- X to clear board
+- set number of swaps, higher number of swaps will exponentially slow down program
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Misc
+- TL support not implemented yet
