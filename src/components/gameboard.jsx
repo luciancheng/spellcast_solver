@@ -144,7 +144,7 @@ const GameBoard = () => {
                         }
                     </div>
                 </div>
-                <div className="gameboard-fill mt-3 p-4 gameboard-options flex justify-between">
+                <div className="gameboard-fill-2 mt-3 p-4 gameboard-options flex justify-between">
                     <button 
                     className="DL-button gameboard-options-buttons font-bold text-xl"
                     onClick={handleDLButtonClick}

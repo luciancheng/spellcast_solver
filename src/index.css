@@ -123,6 +123,13 @@ h1 {
   width: 100%;
   aspect-ratio: 1/1;
 }
+.gameboard-fill-2 {
+  background-color: var(--color-black-1);
+  border: 0.35rem solid var(--color-darkblue-4);
+  border-radius: 2rem;
+  width: 100%;
+  height:100%;
+}
 
 .gameboard-tile-grid {
   display: grid;
