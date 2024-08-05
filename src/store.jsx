@@ -13,7 +13,7 @@ const Store = ({ children }) => {
         // Function to read the dictionary file and add words to the Trie
         const buildTrie = async () => {
             try {
-                const response = await fetch('./src/assets/dictionary.txt'); // Adjust the path to your dictionary file
+                const response = await fetch('/spellcast_solver/assets/dictionary.txt'); // Adjust the path to your dictionary file
                 const text = await response.text();
                 const words = text.split('\n').map(word => word.trim());
                 addWordsToTrie(words);
